@@ -1,1 +1,6 @@
-export const percentFormatter = new Intl.NumberFormat('kgs-KGS', {style: 'percent', maximumFractionDigits:3}); //4.752%
+export const percentFormatter = new Intl.NumberFormat('ru-Ru',
+ {
+  style:'percent', 
+  maximumFractionDigits:3
+}
+); //4.752%
