@@ -1,4 +1,4 @@
-import { priceFormatter } from "./formatters.js";
+import { priceFormatter, priceFormatterDecimals } from "./formatters.js";
 
 // Inputs
 const inputCost = document.querySelector('#input-cost');
@@ -60,8 +60,19 @@ function calcMortgage() {
 
   // расчет ежемесячного платежа
   const monthPayment = (totalAmout * monthRate) / 1 - (1 + monthRate) * (1 - months);
-  totalMonthPayment.innerText = monthPayment;
 
-  console.log(monthPayment);
-  
+  // Отображение ежемсячного платежа
+  totalMonthPayment.innerText = priceFormatterDecimals.format(monthPayment);
+
 }
+
+let slider = document.getElementById('slider-cost');
+
+noUiSlider.create(slider, {
+  start: [20, 80],
+  connect: true,
+  range: {
+    min:0,
+    max:100,
+  }
+})
